@@ -117,7 +117,7 @@
   --text-hero-display: clamp(2.875rem, 0.25rem + 12.8vw, 5.25rem);
   --text-hero-display-tablet: clamp(3.75rem, 1.5rem + 5.8vw, 5.75rem);
   --text-hero-display-desktop: clamp(4.75rem, 0.85rem + 7.1vw, 7.5rem);
-  --text-hero-subtitle: clamp(1.125rem, 0.95rem + 0.65vw, 1.5rem);
+  --text-hero-subtitle: clamp(1.125rem, 0.55rem + 1.05vw, 2.15rem);
   --text-statement: clamp(1.875rem, 0.45rem + 3.4vw, 5.25rem);
 
   --leading-tight: 1.15;
@@ -134,6 +134,7 @@
   --tracking-hero-display: -0.08em;
   --tracking-statement: -0.04em;
   --hero-heading-optical-offset: -0.045em;
+  --statement-optical-offset: -0.03em;
 
   /* ------------------------------------------------------------------------
      6. Spacing Scale (4px / 8px Grid)
