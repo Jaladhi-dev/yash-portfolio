@@ -45,9 +45,12 @@ export function useParallax(targetRef, { disabled = false } = {}) {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0]
-        isVisible = Boolean(entry?.isIntersecting)
-        if (isVisible) {
+        const nextVisible = Boolean(entry?.isIntersecting)
+        isVisible = nextVisible
+        if (nextVisible) {
           scheduleUpdate()
+        } else if (rafId === 0) {
+          rafId = window.requestAnimationFrame(updateProgress)
         }
       },
       { threshold: 0 }

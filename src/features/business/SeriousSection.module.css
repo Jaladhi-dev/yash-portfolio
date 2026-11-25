@@ -34,9 +34,13 @@
   gap: var(--space-2);
   transform: translate3d(
     0,
-    calc(var(--parallax-progress, 0) * -2rem),
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3rem +
+        max(var(--parallax-progress, 0), 0) * -7svh
+    ),
     0
   );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.45);
 }
 
 .line {
@@ -77,6 +81,14 @@
   width: 100%;
   margin-top: auto;
   pointer-events: none;
+  transform: translate3d(
+    0,
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3rem +
+        max(var(--parallax-progress, 0), 0) * 4svh
+    ),
+    0
+  );
 }
 
 .artworkFrame {
@@ -154,7 +166,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .captionBlock {
+  .captionBlock,
+  .artworkLayer {
     transform: none;
+    opacity: 1;
   }
 }

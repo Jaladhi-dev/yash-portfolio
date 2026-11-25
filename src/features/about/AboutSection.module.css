@@ -55,14 +55,16 @@
   align-items: flex-start;
   transform: translate3d(
     0,
-    calc(var(--parallax-progress, 0) * -2.5rem),
+    calc(var(--parallax-progress, 0) * -4rem),
     0
   );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .calloutStack {
     transform: none;
+    opacity: 1;
   }
 }
 

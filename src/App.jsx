@@ -9,6 +9,7 @@ import { HeroSection } from '@/features/hero/HeroSection'
 const AboutSection = lazy(() => import('@/features/about/AboutSection'))
 const WorkIntroSection = lazy(() => import('@/features/work/WorkIntroSection'))
 const SeriousSection = lazy(() => import('@/features/business/SeriousSection'))
+const ProjectsSection = lazy(() => import('@/features/projects/ProjectsSection'))
 
 /**
  * Root application component composing landmark layout and parallax portfolio pages.
@@ -50,6 +51,16 @@ export function App() {
               fallback={<SectionLoader label="Loading projects transition" />}
             >
               <SeriousSection />
+            </Suspense>
+          </ErrorBoundary>
+        </ParallaxSection>
+
+        <ParallaxSection layer={5}>
+          <ErrorBoundary>
+            <Suspense
+              fallback={<SectionLoader label="Loading projects categories" />}
+            >
+              <ProjectsSection />
             </Suspense>
           </ErrorBoundary>
         </ParallaxSection>

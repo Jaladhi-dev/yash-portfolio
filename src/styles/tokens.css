@@ -178,6 +178,7 @@
   --shadow-lg: 0 20px 40px -12px rgba(20, 39, 59, 0.18);
   --shadow-callout: 0 12px 28px -8px rgba(20, 39, 59, 0.24);
   --shadow-page-curtain: 0 -24px 48px -12px rgba(13, 26, 40, 0.32);
+  --shadow-mascot-glow: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.35));
   --color-parallax-veil: rgba(13, 26, 40, 0.34);
   --tilt-callout: -4.5deg;
   --tilt-callout-hover: -1.5deg;

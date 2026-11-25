@@ -29,9 +29,13 @@
   justify-items: start;
   transform: translate3d(
     0,
-    calc(var(--parallax-progress, 0) * -2.5rem),
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3rem +
+        max(var(--parallax-progress, 0), 0) * -8svh
+    ),
     0
   );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.45);
 }
 
 .line {
@@ -49,7 +53,10 @@
   margin-top: auto;
   transform: translate3d(
     0,
-    calc(min(var(--parallax-progress, 0), 0) * -3rem),
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3.5rem +
+        max(var(--parallax-progress, 0), 0) * 4svh
+    ),
     0
   );
 }
@@ -113,5 +120,6 @@
   .textColumn,
   .artworkColumn {
     transform: none;
+    opacity: 1;
   }
 }
