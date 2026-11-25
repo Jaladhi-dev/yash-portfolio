@@ -9,6 +9,7 @@ import styles from './CircleIconButton.module.css'
  * @param {string} props.ariaLabel - Accessible label describing the action.
  * @param {string} [props.href] - Optional link target; renders `<button>` when omitted.
  * @param {() => void} [props.onClick] - Optional click handler.
+ * @param {'right' | 'down' | 'left' | 'up'} [props.direction='right'] - Default chevron direction.
  * @param {import('react').ReactNode} [props.icon] - Custom icon node; defaults to `ChevronIcon`.
  * @param {string} [props.className=''] - Optional extra class name.
  * @returns {JSX.Element} Circular button or link element.
@@ -17,11 +18,18 @@ export function CircleIconButton({
   ariaLabel,
   href,
   onClick,
+  direction = 'right',
   icon,
   className = '',
 }) {
   const classes = [styles.button, className].filter(Boolean).join(' ')
-  const content = icon ?? <ChevronIcon className={styles.icon} strokeWidth={3.25} />
+  const content = icon ?? (
+    <ChevronIcon
+      direction={direction}
+      className={styles.icon}
+      strokeWidth={3.25}
+    />
+  )
 
   if (href) {
     return (

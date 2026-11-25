@@ -31,6 +31,14 @@
   letter-spacing: var(--tracking-normal);
 }
 
+.playful {
+  font-family: var(--font-playful);
+  font-weight: 400;
+  font-size: var(--text-hero-subtitle);
+  line-height: var(--leading-hero-subtitle);
+  letter-spacing: var(--tracking-normal);
+}
+
 .statement,
 .statementMedium {
   font-family: var(--font-heading);

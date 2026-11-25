@@ -6,7 +6,7 @@ import styles from './Typography.module.css'
  *
  * @param {object} props
  * @param {keyof JSX.IntrinsicElements} [props.as='p'] - Rendered semantic HTML tag.
- * @param {'heroDisplay' | 'heroSubtitle' | 'statement' | 'statementMedium' | 'h1' | 'h2' | 'h3' | 'body' | 'caption'} [props.variant='body'] - Typographic scale variant.
+ * @param {'heroDisplay' | 'heroSubtitle' | 'playful' | 'statement' | 'statementMedium' | 'h1' | 'h2' | 'h3' | 'body' | 'caption'} [props.variant='body'] - Typographic scale variant.
  * @param {'heading' | 'primary' | 'secondary' | 'muted' | 'inverse' | 'white' | 'heroInk'} [props.tone='primary'] - Semantic color token.
  * @param {'left' | 'center' | 'right'} [props.align='left'] - Text alignment.
  * @param {string} [props.className=''] - Optional extra class name.
