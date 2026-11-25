@@ -1,0 +1,5 @@
+.loader {
+  min-height: 100svh;
+  width: 100%;
+  background-color: var(--color-bg-subtle);
+}

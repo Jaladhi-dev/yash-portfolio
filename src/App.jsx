@@ -1,8 +1,15 @@
+import { lazy, Suspense } from 'react'
+
+import { ParallaxSection } from '@/components/layout/ParallaxSection/ParallaxSection'
+import { SectionLoader } from '@/components/layout/SectionLoader/SectionLoader'
 import { SkipLink } from '@/components/layout/SkipLink/SkipLink'
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary/ErrorBoundary'
 import { HeroSection } from '@/features/hero/HeroSection'
 
+const AboutSection = lazy(() => import('@/features/about/AboutSection'))
+
 /**
- * Root application component composing landmark layout and portfolio sections.
+ * Root application component composing landmark layout and parallax portfolio pages.
  *
  * @returns {JSX.Element} Portfolio application root.
  */
@@ -11,7 +18,19 @@ export function App() {
     <>
       <SkipLink targetId="main-content" />
       <main id="main-content">
-        <HeroSection />
+        <ParallaxSection layer={1}>
+          <HeroSection />
+        </ParallaxSection>
+
+        <ParallaxSection layer={2}>
+          <ErrorBoundary>
+            <Suspense
+              fallback={<SectionLoader label="Loading about section" />}
+            >
+              <AboutSection />
+            </Suspense>
+          </ErrorBoundary>
+        </ParallaxSection>
       </main>
     </>
   )

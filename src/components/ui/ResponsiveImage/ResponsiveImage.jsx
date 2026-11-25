@@ -14,7 +14,7 @@ import styles from './ResponsiveImage.module.css'
  * @param {boolean} [props.decorative=false] - Marks image as purely decorative.
  * @param {boolean} [props.priority=false] - Enables high-priority eager loading for LCP images.
  * @param {'cover' | 'contain'} [props.fit='cover'] - CSS object-fit behavior.
- * @param {string} [props.objectPosition='center'] - CSS object-position value.
+ * @param {string} [props.objectPosition] - Default CSS object-position value (overridable via CSS `--img-object-position`).
  * @param {string} [props.className=''] - Optional wrapper class name.
  * @param {string} [props.imgClassName=''] - Optional img element class name.
  * @returns {JSX.Element} Responsive picture/image element.
@@ -29,7 +29,7 @@ export function ResponsiveImage({
   decorative = false,
   priority = false,
   fit = 'cover',
-  objectPosition = 'center',
+  objectPosition,
   className = '',
   imgClassName = '',
 }) {
@@ -43,7 +43,14 @@ export function ResponsiveImage({
     .join(' ')
 
   return (
-    <picture className={wrapperClasses}>
+    <picture
+      className={wrapperClasses}
+      style={
+        objectPosition
+          ? { '--img-object-position': objectPosition }
+          : undefined
+      }
+    >
       <img
         src={src}
         srcSet={srcSet}
@@ -56,7 +63,6 @@ export function ResponsiveImage({
         decoding={priority ? 'sync' : 'async'}
         fetchPriority={priority ? 'high' : undefined}
         className={imageClasses}
-        style={{ objectPosition }}
       />
     </picture>
   )

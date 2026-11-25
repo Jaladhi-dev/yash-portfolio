@@ -31,6 +31,22 @@
   letter-spacing: var(--tracking-normal);
 }
 
+.statement,
+.statementMedium {
+  font-family: var(--font-heading);
+  font-size: var(--text-statement);
+  line-height: var(--leading-statement);
+  letter-spacing: var(--tracking-statement);
+}
+
+.statement {
+  font-weight: 400;
+}
+
+.statementMedium {
+  font-weight: 500;
+}
+
 .h1 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -90,6 +106,10 @@
 
 .tone-inverse {
   color: var(--color-text-inverse);
+}
+
+.tone-white {
+  color: var(--palette-white);
 }
 
 .tone-heroInk {

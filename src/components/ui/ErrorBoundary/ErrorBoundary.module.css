@@ -1,0 +1,26 @@
+.fallback {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-8);
+  text-align: center;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.card {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+}
+
+.retryButton {
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  border: 0;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-heading);
+  font-weight: 700;
+}

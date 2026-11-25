@@ -12,6 +12,13 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  transform: translate3d(
+      0,
+      calc(max(var(--parallax-progress, 0), 0) * 5%),
+      0
+    )
+    scale(calc(1 + max(var(--parallax-progress, 0), 0) * 0.12));
+  transform-origin: center center;
 }
 
 .scrim {
@@ -43,6 +50,21 @@
 
 .statementArea {
   padding-top: var(--hero-top-offset-mobile);
+  transform: translate3d(
+    0,
+    calc(max(var(--parallax-progress, 0), 0) * -14svh),
+    0
+  );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .statementArea,
+  .quoteArea {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .statementBlock {
@@ -71,6 +93,12 @@
   margin-top: auto;
   padding-top: var(--space-12);
   padding-bottom: clamp(var(--space-6), 4svh, var(--space-12));
+  transform: translate3d(
+    0,
+    calc(max(var(--parallax-progress, 0), 0) * -8svh),
+    0
+  );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.65);
 }
 
 @media (min-width: 48rem) {
