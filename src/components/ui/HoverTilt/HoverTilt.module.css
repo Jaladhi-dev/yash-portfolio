@@ -1,0 +1,38 @@
+.tilt {
+  --_tilt-rest: var(--tilt-rest, 0deg);
+  --_tilt-hover: var(--tilt-hover, var(--tilt-subtle-hover));
+  --_tilt-lift: var(--tilt-lift-amount, var(--tilt-lift));
+  --_tilt-scale: var(--tilt-scale-amount, var(--tilt-scale));
+
+  transform: rotate(var(--_tilt-rest)) translate3d(0, 0, 0) scale(1);
+  transform-origin: center;
+  transition: transform var(--transition-spring);
+}
+
+@media (hover: hover) {
+  .tilt:hover {
+    transform: rotate(var(--_tilt-hover))
+      translate3d(0, var(--_tilt-lift), 0)
+      scale(var(--_tilt-scale));
+  }
+}
+
+.tilt:focus-visible {
+  transform: rotate(var(--_tilt-hover))
+    translate3d(0, var(--_tilt-lift), 0)
+    scale(var(--_tilt-scale));
+}
+
+.tilt:active {
+  transform: rotate(var(--_tilt-rest)) translate3d(0, 0, 0) scale(0.99);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilt,
+  .tilt:hover,
+  .tilt:focus-visible,
+  .tilt:active {
+    transform: rotate(var(--_tilt-rest));
+    transition: none;
+  }
+}

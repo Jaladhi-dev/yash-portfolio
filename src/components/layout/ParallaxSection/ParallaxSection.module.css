@@ -1,0 +1,36 @@
+.track {
+  position: relative;
+  min-height: 100svh;
+  --parallax-progress: 0;
+}
+
+.frame {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  box-shadow: var(--shadow-page-curtain);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: var(--color-parallax-veil);
+  opacity: calc(max(var(--parallax-progress, 0), 0) * 0.5);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky {
+    position: relative;
+  }
+
+  .veil {
+    opacity: 0;
+  }
+}

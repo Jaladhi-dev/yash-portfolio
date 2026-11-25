@@ -1,0 +1,174 @@
+.serious {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: var(--color-primary);
+}
+
+.contentLayer {
+  position: relative;
+  z-index: var(--z-sticky);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: var(--about-top-offset-mobile);
+  padding-bottom: var(--space-6);
+  gap: var(--space-8);
+}
+
+.captionBlock {
+  position: relative;
+  width: fit-content;
+  display: grid;
+  gap: var(--space-2);
+  transform: translate3d(
+    0,
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3rem +
+        max(var(--parallax-progress, 0), 0) * -7svh
+    ),
+    0
+  );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.45);
+}
+
+.line {
+  display: block;
+}
+
+.captionLineSvg {
+  width: clamp(4.5rem, 18vw, 7rem);
+  height: auto;
+  color: var(--color-hero-ink);
+  margin-left: clamp(2.5rem, 12vw, 5rem);
+}
+
+.ctaBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+  gap: var(--space-3);
+  margin-top: auto;
+}
+
+.ctaText {
+  color: var(--palette-navy);
+}
+
+.ctaButton {
+  background-color: var(--palette-navy);
+}
+
+.ctaButton:hover {
+  background-color: var(--palette-navy-light);
+}
+
+.artworkLayer {
+  position: relative;
+  z-index: var(--z-base);
+  width: 100%;
+  margin-top: auto;
+  pointer-events: none;
+  transform: translate3d(
+    0,
+    calc(
+      min(var(--parallax-progress, 0), 0) * -3rem +
+        max(var(--parallax-progress, 0), 0) * 4svh
+    ),
+    0
+  );
+}
+
+.artworkFrame {
+  width: 100%;
+  aspect-ratio: 1600 / 888;
+}
+
+@media (min-width: 48rem) {
+  .inner {
+    min-height: 100svh;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .artworkLayer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 0;
+  }
+
+  .artworkFrame {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .captionBlock {
+    position: absolute;
+    left: 21.5%;
+    top: 12%;
+  }
+
+  .captionBlock p {
+    font-size: var(--text-serious-caption);
+  }
+
+  .captionLineSvg {
+    width: clamp(3.75rem, 5.4vw, 8.5rem);
+    margin-left: clamp(2rem, 3.8vw, 6rem);
+  }
+
+  .ctaBlock {
+    position: absolute;
+    right: clamp(var(--space-6), 4.5vw, var(--space-20));
+    bottom: clamp(var(--space-6), 5svh, var(--space-12));
+    margin-top: 0;
+  }
+
+  .ctaText {
+    color: var(--palette-white);
+    text-shadow: var(--shadow-text-on-photo);
+  }
+
+  .ctaButton {
+    background-color: var(--color-primary);
+  }
+
+  .ctaButton:hover {
+    background-color: var(--color-primary-hover);
+  }
+}
+
+@media (min-width: 64rem) {
+  .captionBlock {
+    left: 22%;
+    top: 12%;
+  }
+
+  .artworkFrame .artworkImage {
+    object-fit: cover;
+    --img-object-position: center 22%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .captionBlock,
+  .artworkLayer {
+    transform: none;
+    opacity: 1;
+  }
+}

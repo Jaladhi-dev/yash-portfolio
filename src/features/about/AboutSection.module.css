@@ -1,0 +1,188 @@
+.about {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--palette-navy-dark);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.backdropImage {
+  --img-object-position: 83% 58%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-base);
+  background: linear-gradient(
+    to top,
+    var(--color-about-scrim) 0%,
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: var(--z-sticky);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner {
+  position: relative;
+  flex: 1;
+  min-height: 100svh;
+  padding-top: var(--about-top-offset-mobile);
+  padding-bottom: var(--space-10);
+}
+
+.calloutStack {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translate3d(
+    0,
+    calc(var(--parallax-progress, 0) * -4rem),
+    0
+  );
+  opacity: calc(1 - max(var(--parallax-progress, 0), 0) * 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calloutStack {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.whiteBox {
+  background-color: var(--palette-white);
+  padding: clamp(var(--space-4), 1.6vw, var(--space-8))
+    clamp(var(--space-5), 2.2vw, var(--space-12));
+  box-shadow: var(--shadow-callout);
+}
+
+.statementLine {
+  display: block;
+}
+
+.yellowBox {
+  position: relative;
+  z-index: var(--z-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
+  font-size: var(--text-statement);
+  margin-top: -0.18em;
+  margin-left: clamp(var(--space-8), 7vw, var(--space-24));
+  padding: 0.24em 0.44em;
+  background-color: var(--color-primary);
+  color: var(--palette-white);
+  text-decoration: none;
+  box-shadow: var(--shadow-callout);
+  transition: transform var(--transition-spring),
+    background-color var(--transition-fast);
+}
+
+.yellowBox:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.yellowChevron {
+  width: 0.72em;
+  height: 0.72em;
+  flex-shrink: 0;
+  transition: transform var(--transition-spring);
+}
+
+.yellowBox:hover .yellowChevron,
+.yellowBox:focus-visible .yellowChevron {
+  transform: translateX(var(--space-1));
+}
+
+.meArea {
+  position: absolute;
+  left: var(--space-2);
+  bottom: 18svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.meArrow {
+  position: absolute;
+  left: 64%;
+  bottom: calc(100% - var(--space-1));
+  width: clamp(5.25rem, 22vw, 7.25rem);
+  aspect-ratio: 428 / 270;
+  pointer-events: none;
+}
+
+.meLabel {
+  text-shadow: var(--shadow-text-on-photo);
+}
+
+@media (min-width: 48rem) {
+  .backdropImage {
+    --img-object-position: 78% 60%;
+  }
+
+  .scrim {
+    background: linear-gradient(
+      to top,
+      var(--color-about-scrim-tablet) 0%,
+      transparent 35%
+    );
+  }
+
+  .inner {
+    padding-top: var(--about-top-offset-desktop);
+    padding-bottom: clamp(var(--space-10), 10svh, var(--space-24));
+  }
+
+  .calloutStack {
+    margin-left: clamp(var(--space-4), 4.5vw, var(--space-20));
+  }
+
+  .meArea {
+    left: auto;
+    right: 24.5%;
+    bottom: 13%;
+    gap: clamp(var(--space-3), 1vw, var(--space-5));
+  }
+
+  .meArrow {
+    left: 56%;
+    width: clamp(5.5rem, 8vw, 13rem);
+  }
+}
+
+@media (min-width: 64rem) {
+  .backdropImage {
+    --img-object-position: center 60%;
+  }
+
+  .meArea {
+    right: 23.5%;
+    bottom: 12%;
+  }
+
+  .meArrow {
+    left: 56%;
+    width: clamp(6.5rem, 8.5vw, 14rem);
+  }
+}
