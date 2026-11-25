@@ -1,0 +1,110 @@
+.base {
+  margin: 0;
+}
+
+/* Variants */
+.heroDisplay {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: var(--text-hero-display);
+  line-height: var(--leading-hero-display);
+  letter-spacing: var(--tracking-hero-display);
+}
+
+@media (min-width: 48rem) {
+  .heroDisplay {
+    font-size: var(--text-hero-display-tablet);
+  }
+}
+
+@media (min-width: 64rem) {
+  .heroDisplay {
+    font-size: var(--text-hero-display-desktop);
+  }
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-hero-subtitle);
+  line-height: var(--leading-hero-subtitle);
+  letter-spacing: var(--tracking-normal);
+}
+
+.h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* Tones */
+.tone-heading {
+  color: var(--color-text-heading);
+}
+
+.tone-primary {
+  color: var(--color-text-primary);
+}
+
+.tone-secondary {
+  color: var(--color-text-secondary);
+}
+
+.tone-muted {
+  color: var(--color-text-muted);
+}
+
+.tone-inverse {
+  color: var(--color-text-inverse);
+}
+
+.tone-heroInk {
+  color: var(--color-hero-ink);
+}
+
+/* Alignment */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
